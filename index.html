@@ -407,6 +407,64 @@
       margin-top: -0.5rem;
     }
 
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-success {
+      display: none;
+      border: 1px solid var(--gold);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .form-success.visible { display: block; }
+
+    .form-success .checkmark {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 1.25rem;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1.6rem;
+    }
+
+    .form-success h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .form-success p {
+      color: var(--muted);
+      max-width: 38ch;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .form-error {
+      display: none;
+      color: #e89b9b;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    .form-error.visible { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid rgba(255,255,255,0.05);
@@ -515,7 +573,7 @@
           </div>
           <div class="feat-text">
             <strong>Make and Fire Your Own Charge</strong>
-            <span>You won't just watch. Under close supervision, you'll mix a real black powder charge, rig it, and detonate it yourself.</span>
+            <span>You won't just watch. Under close supervision, you'll use a real black powder charge, rig it, and detonate it yourself.</span>
           </div>
         </li>
         <li>
@@ -601,6 +659,7 @@
     </div>
 
     <form
+      id="enquiry-form"
       action="https://formspree.io/f/xkopgnyd"
       method="POST"
     >
@@ -639,9 +698,53 @@
       </label>
 
       <button type="submit" class="submit-btn">Send Enquiry</button>
+      <p class="form-error" id="form-error">Something went wrong. Please try again, or email us directly.</p>
       <p class="form-note">Or email directly: <a href="mailto:unique@totallybespoke.vip" style="color: var(--gold); text-decoration: none;">unique@totallybespoke.vip</a></p>
     </form>
+
+    <div class="form-success" id="form-success" role="status" aria-live="polite">
+      <div class="checkmark">&#10003;</div>
+      <h3>Enquiry Received</h3>
+      <p>Thank you. We've got your details and will be in touch personally — usually within a day or two. Keep an eye on your inbox.</p>
+    </div>
   </section>
+
+  <script>
+    (function () {
+      var form = document.getElementById('enquiry-form');
+      var success = document.getElementById('form-success');
+      var error = document.getElementById('form-error');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        error.classList.remove('visible');
+        var btn = form.querySelector('.submit-btn');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+          .then(function (res) {
+            if (res.ok) {
+              form.style.display = 'none';
+              success.classList.add('visible');
+              success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+              throw new Error('Submission failed');
+            }
+          })
+          .catch(function () {
+            error.classList.add('visible');
+            btn.disabled = false;
+            btn.textContent = 'Send Enquiry';
+          });
+      });
+    })();
+  </script>
 
   <div class="gold-line"></div>
 
