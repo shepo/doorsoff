@@ -285,6 +285,71 @@
       line-height: 1.6;
     }
 
+    /* ── VIDEO EMBED ── */
+    .video-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--dark-card);
+      border: 1px solid rgba(201,168,76,0.25);
+      box-shadow: 0 0 80px rgba(201,168,76,0.08);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-frame iframe,
+    .video-frame video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .video-placeholder .play-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      background: rgba(201,168,76,0.05);
+    }
+
+    .video-placeholder p {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .video-placeholder span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: none;
+    }
+
     /* ── LUXURY CALLOUT ── */
     .callout-wrap {
       background:
@@ -547,6 +612,20 @@
 
   <div class="gold-line"></div>
 
+  <!-- ── VIDEO EMBED ── -->
+  <div class="video-wrap">
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/qV9uYQCrLsE?autoplay=1&mute=1&rel=0&playsinline=1&modestbranding=1"
+        title="Blow The Bloody Doors Off"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+
+  <div class="gold-line"></div>
+
   <!-- ── CONCEPT ── -->
   <section id="experience">
     <p class="section-label">The Experience</p>
@@ -640,11 +719,11 @@
     <div class="callout-inner">
       <p class="section-label">Bespoke By Design</p>
       <p class="callout-quote">
-        The flagship experience is just the beginning.<br>
-        <em>Imagine a full James Bond sequence — built around you.</em>
+        
+        <em>Imagine a full James Bond action sequence — built around you.</em>
       </p>
       <p class="callout-body">
-        Totally Bespoke creates fully custom SFX experiences for private events, corporate occasions, and those who simply want something extraordinary. Every enquiry is treated individually. There are no fixed packages — only what the occasion demands.
+        The iconic scene from The Italian Job is just one of many thrilling experiences we can stage.<br>A car chase finale. A heist gone right. A moment from your favourite film, recreated for you to star in. Totally Bespoke creates fully custom SFX experiences for private events, corporate occasions, and those who simply want something extraordinary. Every enquiry is treated individually. There are no fixed packages — only what the occasion demands.
       </p>
     </div>
   </div>
@@ -654,7 +733,7 @@
     <div class="form-intro">
       <p class="section-label">Get In Touch</p>
       <h2 class="section-title">Book Your Experience.</h2>
-      <p>Tell us a little about what you have in mind. We'll come back to you personally — no automated responses, no sales scripts.</p>
+      <p>Enquire about <em>Blow The Doors Off</em> — or, if there's another scene you've always wanted to recreate, tell us about it. We'll come back to you personally — no automated responses, no sales scripts.</p>
       <p>Weather may occasionally affect the exact programme. As on any proper set: the show goes on, and contingency plans are always in place.</p>
     </div>
 
@@ -694,7 +773,7 @@
 
       <label>
         Tell us about your experience
-        <textarea name="message" placeholder="What are you imagining? A single experience, a private event, something entirely bespoke? No idea is too large."></textarea>
+        <textarea name="message" placeholder="Enquiring about Blow The Doors Off? Just say so. Or — is there a scene you've always wanted to recreate? A car chase, a heist, a Bond moment? Tell us what you're imagining. No idea is too large."></textarea>
       </label>
 
       <button type="submit" class="submit-btn">Send Enquiry</button>
