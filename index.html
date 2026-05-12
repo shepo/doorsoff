@@ -239,6 +239,46 @@
       color: var(--muted);
     }
 
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial {
+      position: relative;
+      padding: 2.25rem 2rem 2rem;
+      background: var(--dark-card);
+      border-left: 2px solid var(--gold);
+    }
+
+    .testimonial-mark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 6rem;
+      line-height: 0.5;
+      color: rgba(201,168,76,0.25);
+      margin-bottom: 0.25rem;
+    }
+
+    .testimonial p {
+      font-size: 0.95rem;
+      color: var(--off-white);
+      opacity: 0.85;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
     /* ── HOW IT WORKS ── */
     .how-wrap {
       background: var(--dark-mid);
@@ -579,6 +619,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
       .concept-body { grid-template-columns: 1fr; gap: 2.5rem; }
+      .testimonials { grid-template-columns: 1fr; gap: 1.5rem; }
       .steps { grid-template-columns: 1fr; }
       .field-row { grid-template-columns: 1fr; }
       footer { flex-direction: column; align-items: flex-start; }
@@ -674,6 +715,36 @@
           </div>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section id="testimonials">
+    <p class="section-label">What They Said</p>
+    <h2 class="section-title">From The Set.</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="testimonial-mark">&ldquo;</div>
+        <p>I thoroughly enjoyed all of the activities, the company was excellent and the weather was on our side. All in all a memorable day.</p>
+        <div class="testimonial-author">— Ian</div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-mark">&ldquo;</div>
+        <p>I really enjoyed it, I thought your team were great, all really professional and friendly and did a great job looking after us.</p>
+        <div class="testimonial-author">— Andrew</div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-mark">&ldquo;</div>
+        <p>I enjoyed the rig/tech process a lot, it's something that I'm definitely interested in doing as a career.</p>
+        <div class="testimonial-author">— Abbie</div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-mark">&ldquo;</div>
+        <p>I thought the event itself was fun, informative, exciting, and obviously an honour to witness an SFX legend at work!</p>
+        <div class="testimonial-author">— Ed</div>
+      </div>
     </div>
   </section>
 
