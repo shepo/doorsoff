@@ -689,9 +689,6 @@ a { color: inherit; }
   margin-bottom: 1rem;
 }
 
-/* Steps grid modifier — 2-col layout (e.g. Big Bang's 4 steps) */
-.steps--cols-2 { grid-template-columns: 1fr 1fr; }
-
 /* ── DETAILS STRIP ── */
 .details-strip {
   margin-top: 3rem;
@@ -1033,8 +1030,7 @@ footer {
   .event-cards { grid-template-columns: 1fr; gap: 1.5rem; }
   .concept-body { grid-template-columns: 1fr; gap: 2.5rem; }
   .testimonials { grid-template-columns: 1fr; gap: 1.5rem; }
-  .steps,
-  .steps--cols-2 { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
   .details-strip { grid-template-columns: 1fr; gap: 1.25rem; }
   .field-row { grid-template-columns: 1fr; }
   footer { flex-direction: column; align-items: flex-start; }
