@@ -755,30 +755,12 @@ a { color: inherit; }
   margin-top: 3rem;
 }
 
-.booking-embed {
-  border: 1px solid rgba(201, 168, 76, 0.18);
-  background: #fff;
-  overflow: hidden;
-  margin-top: 1.25rem;
-}
-
-.booking-embed iframe {
-  display: block;
-  width: 100%;
-  border: 0;
-}
-
-.booking-fallback {
+.booking-intro {
   margin-top: 1rem;
-  font-size: 0.85rem;
-  color: var(--muted);
-  text-align: center;
-}
-
-.booking-fallback a {
-  color: var(--gold);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--off-white);
+  opacity: 0.8;
+  font-size: 0.95rem;
+  max-width: 540px;
 }
 
 .booking-placeholder {
