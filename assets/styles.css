@@ -750,9 +750,35 @@ a { color: inherit; }
 
 .details-strip dd strong { color: #fff; }
 
-/* ── BOOKING PLACEHOLDER ── */
+/* ── BOOKING ── */
 .booking-block {
   margin-top: 3rem;
+}
+
+.booking-embed {
+  border: 1px solid rgba(201, 168, 76, 0.18);
+  background: #fff;
+  overflow: hidden;
+  margin-top: 1.25rem;
+}
+
+.booking-embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+
+.booking-fallback {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.booking-fallback a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .booking-placeholder {
