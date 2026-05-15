@@ -142,6 +142,9 @@ a { color: inherit; }
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 1.25rem;
+  text-shadow:
+    0 0 8px rgba(8, 8, 8, 0.85),
+    0 1px 2px rgba(8, 8, 8, 0.7);
 }
 
 .hero-title {
@@ -282,6 +285,15 @@ a { color: inherit; }
   letter-spacing: 0.02em;
   color: #fff;
   margin-bottom: 1.5rem;
+}
+
+.section-lede {
+  font-size: 1.05rem;
+  color: var(--off-white);
+  opacity: 0.8;
+  max-width: 640px;
+  line-height: 1.65;
+  margin-bottom: 1rem;
 }
 
 /* ── VIDEO EMBED ── */
