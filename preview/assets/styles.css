@@ -142,6 +142,9 @@ a { color: inherit; }
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 1.25rem;
+  text-shadow:
+    0 0 8px rgba(8, 8, 8, 0.85),
+    0 1px 2px rgba(8, 8, 8, 0.7);
 }
 
 .hero-title {
@@ -282,6 +285,15 @@ a { color: inherit; }
   letter-spacing: 0.02em;
   color: #fff;
   margin-bottom: 1.5rem;
+}
+
+.section-lede {
+  font-size: 1.05rem;
+  color: var(--off-white);
+  opacity: 0.8;
+  max-width: 640px;
+  line-height: 1.65;
+  margin-bottom: 1rem;
 }
 
 /* ── VIDEO EMBED ── */
@@ -677,9 +689,6 @@ a { color: inherit; }
   margin-bottom: 1rem;
 }
 
-/* Steps grid modifier — 2-col layout (e.g. Big Bang's 4 steps) */
-.steps--cols-2 { grid-template-columns: 1fr 1fr; }
-
 /* ── DETAILS STRIP ── */
 .details-strip {
   margin-top: 3rem;
@@ -938,6 +947,43 @@ textarea { resize: vertical; min-height: 120px; }
 
 .next-step p { font-size: 0.9rem; color: var(--muted); }
 
+/* ── SITEMAP LIST ── */
+.sitemap-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.sitemap-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sitemap-list li:last-child { border-bottom: none; }
+
+.sitemap-list a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.sitemap-list a:hover { color: var(--gold-light); }
+
+.sitemap-list span {
+  font-size: 0.95rem;
+  color: var(--off-white);
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -1021,8 +1067,7 @@ footer {
   .event-cards { grid-template-columns: 1fr; gap: 1.5rem; }
   .concept-body { grid-template-columns: 1fr; gap: 2.5rem; }
   .testimonials { grid-template-columns: 1fr; gap: 1.5rem; }
-  .steps,
-  .steps--cols-2 { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
   .details-strip { grid-template-columns: 1fr; gap: 1.25rem; }
   .field-row { grid-template-columns: 1fr; }
   footer { flex-direction: column; align-items: flex-start; }
