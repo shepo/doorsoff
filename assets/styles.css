@@ -326,10 +326,9 @@ a { color: inherit; }
   flex-direction: column;
   background: var(--dark-card);
   border: 1px solid rgba(201, 168, 76, 0.18);
-  border-top: 2px solid var(--gold);
-  padding: 2.5rem 2rem 2rem;
   text-decoration: none;
   color: inherit;
+  overflow: hidden;
   transition: border-color 0.2s, transform 0.2s, background 0.2s;
 }
 
@@ -337,6 +336,32 @@ a { color: inherit; }
   border-color: var(--gold);
   transform: translateY(-3px);
   background: #1a1a1a;
+}
+
+.event-card__image {
+  aspect-ratio: 16 / 9;
+  background-position: center;
+  background-size: cover;
+  background-color: #0a0a0a;
+  border-bottom: 2px solid var(--gold);
+  transition: transform 0.4s ease;
+}
+
+.event-card:hover .event-card__image { transform: scale(1.03); }
+
+.event-card--doors-off .event-card__image {
+  background-image: url('../images/hero.jpg');
+}
+
+.event-card--big-bang .event-card__image {
+  background-image: url('../images/big-bang.jpg');
+}
+
+.event-card__body {
+  padding: 2rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .event-card .eyebrow {
