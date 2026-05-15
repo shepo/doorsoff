@@ -108,6 +108,13 @@ a { color: inherit; }
     url('../images/hero.jpg') center center / cover no-repeat;
 }
 
+.hero--big-bang .hero-bg {
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(220,130,20,0.25) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(8,8,8,0.25) 0%, rgba(8,8,8,0.55) 60%, rgba(8,8,8,1) 100%),
+    url('../images/big-bang.jpg') center center / cover no-repeat;
+}
+
 .hero-bg-fallback {
   position: absolute;
   inset: 0;
