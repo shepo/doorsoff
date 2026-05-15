@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Totally Bespoke</title>
+  <meta name="description" content="Get in touch about Doors Off, Big Bang & Theory, or a fully custom SFX experience. Every enquiry is read personally — no automated responses, no sales scripts." />
+  <link rel="canonical" href="https://totallybespoke.vip/contact.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Totally Bespoke" />
+  <meta property="og:title" content="Contact — Totally Bespoke" />
+  <meta property="og:description" content="Get in touch about Doors Off, Big Bang & Theory, or a fully custom SFX experience." />
+  <meta property="og:url" content="https://totallybespoke.vip/contact.html" />
+  <meta property="og:image" content="https://totallybespoke.vip/images/hero.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+  <header class="site-nav">
+    <a href="index.html" class="nav-brand">Totally Bespoke</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+        <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
+    </ul>
+  </header>
+
+  <main>
+
+  <section class="contact-page">
+    <div class="form-intro">
+      <p class="section-label">Get In Touch</p>
+      <h1 class="section-title">Tell Us What You Have In Mind.</h1>
+      <p>Enquire about <em>Blow The Bloody Doors Off</em>, hold a place on <em>Big Bang &amp; Theory</em>, or tell us about a custom scene you've always wanted to recreate. We'll come back to you personally — no automated responses, no sales scripts.</p>
+      <p>Weather may occasionally affect the exact programme. As on any proper set: the show goes on, and contingency plans are always in place.</p>
+    </div>
+
+    <form
+      id="enquiry-form"
+      action="https://formspree.io/f/xkopgnyd"
+      method="POST"
+    >
+      <div class="field-row">
+        <label>
+          Your Name
+          <input type="text" name="name" required placeholder="e.g. James Bond" />
+        </label>
+        <label>
+          Email Address
+          <input type="email" name="email" required placeholder="you@example.com" />
+        </label>
+      </div>
+
+      <div class="field-row">
+        <label>
+          Phone (optional)
+          <input type="tel" name="phone" placeholder="+44 7700 000000" />
+        </label>
+        <label>
+          Which experience?
+          <select name="experience" id="experience-select">
+            <option value="">— Select —</option>
+            <option value="doors-off">Blow The Bloody Doors Off (31 May 2026)</option>
+            <option value="big-bang">Big Bang &amp; Theory (2–3 hr taster)</option>
+            <option value="custom">Something custom</option>
+            <option value="just-asking">Just asking</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        How did you hear about us?
+        <select name="source">
+          <option value="">— Select —</option>
+          <option>Word of mouth</option>
+          <option>Social media</option>
+          <option>Search engine</option>
+          <option>Press / media</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <label>
+        Tell us about your experience
+        <textarea name="message" placeholder="Tell us what you're imagining. No idea is too large."></textarea>
+      </label>
+
+      <button type="submit" class="btn-primary submit-btn">Send Enquiry</button>
+      <p class="form-error" id="form-error" role="alert">Something went wrong. Please try again, or email us directly.</p>
+      <p class="form-note">Or email directly: <a href="mailto:unique@totallybespoke.vip" style="color: var(--gold); text-decoration: none;">unique@totallybespoke.vip</a></p>
+    </form>
+
+    <div class="form-success" id="form-success" role="status" aria-live="polite">
+      <div class="checkmark">&#10003;</div>
+      <h3>Enquiry Received</h3>
+      <p>Thank you. We've got your details and will be in touch personally — usually within a day or two. Keep an eye on your inbox.</p>
+    </div>
+
+    <div class="next-step">
+      <h3>What happens next</h3>
+      <p>We read every enquiry personally. You'll usually hear back within a day or two — never an automated reply.</p>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-brand">Totally Bespoke</div>
+    <ul class="footer-links">
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="mailto:unique@totallybespoke.vip">unique@totallybespoke.vip</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Totally Bespoke. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Nav toggle
+    (function() {
+      var btn = document.querySelector('.nav-toggle');
+      var links = document.getElementById('primary-nav');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+
+    // Pre-select experience from ?experience=... query param
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var exp = params.get('experience');
+      if (!exp) return;
+      var select = document.getElementById('experience-select');
+      if (!select) return;
+      var match = Array.prototype.find.call(select.options, function(o) { return o.value === exp; });
+      if (match) select.value = exp;
+    })();
+
+    // Form submission
+    (function () {
+      var form = document.getElementById('enquiry-form');
+      var success = document.getElementById('form-success');
+      var error = document.getElementById('form-error');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        error.classList.remove('visible');
+        var btn = form.querySelector('.submit-btn');
+        var originalText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+          .then(function (res) {
+            if (res.ok) {
+              form.style.display = 'none';
+              success.classList.add('visible');
+              success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+              throw new Error('Submission failed');
+            }
+          })
+          .catch(function () {
+            error.classList.add('visible');
+            btn.disabled = false;
+            btn.textContent = originalText;
+          });
+      });
+    })();
+  </script>
+
+</body>
+</html>
