@@ -640,11 +640,23 @@ a { color: inherit; }
 }
 
 /* ── FOUR BEATS (Big Bang & Theory) ── */
+.beats-intro {
+  max-width: 720px;
+  margin-top: 2rem;
+}
+
+.beats-intro p {
+  color: var(--off-white);
+  opacity: 0.8;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
 .beats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .beat-card {
