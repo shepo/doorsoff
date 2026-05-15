@@ -664,63 +664,21 @@ a { color: inherit; }
   line-height: 1.6;
 }
 
-/* ── FOUR BEATS (Big Bang & Theory) ── */
-.beats-intro {
+/* ── BLOCK INTRO (lead paragraphs above a steps grid) ── */
+.block-intro {
   max-width: 720px;
   margin-top: 2rem;
 }
 
-.beats-intro p {
+.block-intro p {
   color: var(--off-white);
   opacity: 0.8;
   font-size: 1rem;
   margin-bottom: 1rem;
 }
 
-.beats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-  margin-top: 2.5rem;
-}
-
-.beat-card {
-  background: var(--dark-card);
-  padding: 1.75rem 1.5rem;
-  border-top: 2px solid var(--gold);
-  position: relative;
-}
-
-.beat-num {
-  position: absolute;
-  top: -14px;
-  left: 1.5rem;
-  background: var(--gold);
-  color: #000;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.05em;
-}
-
-.beat-card h4 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: 0.04em;
-  color: #fff;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.beat-card p {
-  font-size: 0.85rem;
-  color: var(--muted);
-  line-height: 1.55;
-}
+/* Steps grid modifier — 2-col layout (e.g. Big Bang's 4 steps) */
+.steps--cols-2 { grid-template-columns: 1fr 1fr; }
 
 /* ── DETAILS STRIP ── */
 .details-strip {
@@ -1063,13 +1021,9 @@ footer {
   .event-cards { grid-template-columns: 1fr; gap: 1.5rem; }
   .concept-body { grid-template-columns: 1fr; gap: 2.5rem; }
   .testimonials { grid-template-columns: 1fr; gap: 1.5rem; }
-  .steps { grid-template-columns: 1fr; }
-  .beats-grid { grid-template-columns: 1fr 1fr; }
+  .steps,
+  .steps--cols-2 { grid-template-columns: 1fr; }
   .details-strip { grid-template-columns: 1fr; gap: 1.25rem; }
   .field-row { grid-template-columns: 1fr; }
   footer { flex-direction: column; align-items: flex-start; }
-}
-
-@media (max-width: 440px) {
-  .beats-grid { grid-template-columns: 1fr; }
 }
