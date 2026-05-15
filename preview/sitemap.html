@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sitemap — Totally Bespoke</title>
+  <meta name="description" content="A quick index of every page on totallybespoke.vip — the experiences, the FAQ, the contact form, and the home page." />
+  <link rel="canonical" href="https://totallybespoke.vip/sitemap.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+  <header class="site-nav">
+    <a href="index.html" class="nav-brand">Totally Bespoke</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+        <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </header>
+
+  <main>
+
+  <section class="page-header">
+    <p class="section-label">Site Map</p>
+    <h1 class="section-title">Find Your Way Around.</h1>
+    <p class="lede">A quick index of every page on totallybespoke.vip.</p>
+  </section>
+
+  <div class="gold-line" aria-hidden="true"></div>
+
+  <section class="section">
+    <ul class="sitemap-list">
+      <li>
+        <a href="index.html">Home</a>
+        <span>The overview — both experiences, dates, location, sizzle reel.</span>
+      </li>
+      <li>
+        <a href="experiences.html">Experiences</a>
+        <span>The two experiences side by side — pick your way in.</span>
+      </li>
+      <li>
+        <a href="doors-off.html">Blow The Bloody Doors Off!</a>
+        <span>The flagship full-day experience, 31 May 2026.</span>
+      </li>
+      <li>
+        <a href="big-bang.html">Big Bang &amp; Theory</a>
+        <span>The 2–3 hour SFX taster, £149 per person.</span>
+      </li>
+      <li>
+        <a href="faq.html">FAQ</a>
+        <span>Age, safety, access, weather, refunds, filming — answered.</span>
+      </li>
+      <li>
+        <a href="contact.html">Contact</a>
+        <span>Personal enquiry form. We reply within a day or two.</span>
+      </li>
+    </ul>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-brand">Totally Bespoke</div>
+    <ul class="footer-links">
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
+      <li><a href="mailto:unique@totallybespoke.vip">unique@totallybespoke.vip</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Totally Bespoke. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function() {
+      var btn = document.querySelector('.nav-toggle');
+      var links = document.getElementById('primary-nav');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+  </script>
+
+</body>
+</html>
