@@ -1107,13 +1107,19 @@ footer {
   .details-strip { grid-template-columns: 1fr; gap: 1.25rem; }
   .field-row { grid-template-columns: 1fr; }
 
-  .hero-ctas {
+  .hero-ctas,
+  .cta-strip .button-row,
+  .action-row {
     flex-direction: column;
     width: 100%;
   }
 
   .hero-ctas .btn-primary,
-  .hero-ctas .btn-secondary {
+  .hero-ctas .btn-secondary,
+  .cta-strip .button-row .btn-primary,
+  .cta-strip .button-row .btn-secondary,
+  .action-row .btn-primary,
+  .action-row .btn-secondary {
     width: 100%;
     text-align: center;
   }
