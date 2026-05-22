@@ -1029,11 +1029,42 @@ textarea { resize: vertical; min-height: 120px; }
 footer {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-social-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social a {
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.footer-social a:hover { color: var(--gold); }
+
+.footer-main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 900px;
-  margin: 0 auto;
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -1064,11 +1095,9 @@ footer {
 .footer-copy {
   font-size: 0.75rem;
   color: rgba(136, 136, 128, 0.5);
-  width: 100%;
   text-align: center;
   padding-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.04);
-  margin-top: 1rem;
 }
 
 /* ── RESPONSIVE ── */
@@ -1136,10 +1165,9 @@ footer {
     min-width: 0;
   }
 
-  footer {
+  .footer-main {
     flex-direction: column;
     align-items: flex-start;
-    text-align: left;
   }
 
   .footer-links {
