@@ -1036,10 +1036,20 @@ footer {
   gap: 1.5rem;
 }
 
+.footer-social-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+
 .footer-social {
   display: flex;
   gap: 1.25rem;
   align-items: center;
+  justify-content: center;
 }
 
 .footer-social a {
