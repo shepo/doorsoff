@@ -115,6 +115,15 @@ a { color: inherit; }
     url('../images/big-bang.jpg') center center / cover no-repeat;
 }
 
+.hero--home .hero-bg,
+.hero--bespoke .hero-bg {
+  background:
+    radial-gradient(ellipse at 60% 40%, rgba(180,80,10,0.3) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 70%, rgba(220,130,20,0.18) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(8,8,8,0.3) 0%, rgba(8,8,8,0.6) 60%, rgba(8,8,8,1) 100%),
+    url('../images/bespoke.jpg') center center / cover no-repeat;
+}
+
 .hero-bg-fallback {
   position: absolute;
   inset: 0;
@@ -333,6 +342,12 @@ a { color: inherit; }
   margin-top: 3rem;
 }
 
+.event-cards--three { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 900px) {
+  .event-cards--three { grid-template-columns: 1fr; }
+}
+
 .event-card {
   display: flex;
   flex-direction: column;
@@ -367,6 +382,10 @@ a { color: inherit; }
 
 .event-card--big-bang .event-card__image {
   background-image: url('../images/big-bang.jpg');
+}
+
+.event-card--bespoke .event-card__image {
+  background-image: url('../images/bespoke.jpg');
 }
 
 .event-card__body {
