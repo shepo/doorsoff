@@ -1,0 +1,332 @@
+/* ============================================================
+   DIRECTION 4 — "STORYBOARD"  (concept piece, not a finished take)
+   The page is presented as a film storyboard: pencil-on-paper,
+   framed shots, scene/shot slug-lines, marker handwriting and
+   typewritten production notes. Photos sit desaturated like
+   sketches and bloom into colour on hover — board → finished take.
+   Titles: Permanent Marker (hand-marker, CAPS).  Body & labels: Courier Prime.
+   ============================================================ */
+
+:root {
+  --gold:        #D6453A;   /* director's marker red              */
+  --gold-light:  #E8675D;
+  --dark:        #EFE9DC;   /* sketch-pad paper                   */
+  --dark-mid:    #E7E0D0;
+  --dark-card:   #FBF8F0;   /* frame paper                        */
+  --off-white:   #1C1A16;   /* graphite ink                       */
+  --muted:       #6E685B;
+
+  --ink:         #1C1A16;
+  --pencil:      #3A362E;
+  --line:        rgba(28, 26, 22, 0.5);
+  --line-soft:   rgba(28, 26, 22, 0.18);
+}
+
+/* Paper grain: faint dotted grid like a storyboard pad */
+body {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-weight: 400;
+  background-color: var(--dark);
+  background-image:
+    radial-gradient(rgba(28,26,22,0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--off-white);
+}
+
+/* ── Type: hand-marker titles (CAPS), typewriter body & labels ── */
+.hero-title, .section-title, .event-card h3, .callout-quote,
+.cta-strip h2, .experience-block .block-title, .booking-panel h4,
+.faq-section h2, .form-success h3, .next-step h3, .sitemap-list a {
+  font-family: 'Permanent Marker', cursive;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.nav-brand, .footer-brand {
+  font-family: 'Permanent Marker', cursive;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-size: 1.15rem;
+}
+
+.section-label, .hero-eyebrow, .event-card .eyebrow, .testimonial-author,
+.footer-social-label, .nav-links a, .btn-primary, .btn-secondary,
+.tags, label, .form-note, .footer-links a, .footer-copy, .scroll-hint,
+input, textarea, select {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+}
+
+/* marker caps run much wider than the old cursive — size down to fit */
+.hero-title { font-size: clamp(2.6rem, 8vw, 5rem); line-height: 1.02; }
+.section-title { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.05; }
+
+/* ── Nav: typewritten production header ── */
+.site-nav {
+  background: rgba(239, 233, 220, 0.9);
+  border-bottom: 2px solid var(--ink);
+}
+.nav-links a { color: var(--ink); font-size: 0.7rem; letter-spacing: 0.12em; }
+.nav-links a:hover { color: var(--gold); }
+.nav-links a[aria-current="page"] { color: var(--gold); border-bottom-color: var(--gold); }
+.nav-toggle { border: 2px solid var(--ink); color: var(--ink); border-radius: 0; }
+
+/* ── HERO as the opening frame ── */
+.hero {
+  margin: 1.5rem;
+  border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0 rgba(28,26,22,0.25);
+  min-height: calc(100svh - var(--nav-h) - 3rem);
+  overflow: visible;        /* let the caption panel break out of the frame */
+  padding: 0 0 2rem;
+}
+/* The chase image is already half-photo / half-storyboard art —
+   show it as-is (no greyscale) since it embodies the concept. */
+.hero--home .hero-bg, .hero--bespoke .hero-bg {
+  background:
+    linear-gradient(180deg, rgba(239,233,220,0) 0%, rgba(239,233,220,0.1) 70%, var(--dark) 100%),
+    url('../images/chase_drown.jpg') center center / cover no-repeat;
+  filter: none;
+}
+.hero--big-bang .hero-bg {
+  background:
+    linear-gradient(180deg, rgba(239,233,220,0.05) 0%, rgba(239,233,220,0.35) 55%, var(--dark) 100%),
+    url('../images/big-bang.jpg') center center / cover no-repeat;
+  filter: grayscale(1) contrast(1.15) brightness(1.05);
+}
+.hero-bg-fallback { background: repeating-linear-gradient(45deg, #ddd6c6 0 14px, #e7e0d0 14px 28px); }
+
+/* Scene slate, top-left of the frame */
+.hero::before {
+  content: "SCENE 01 · SHOT A — EXT. SET / DAY";
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 3;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--dark-card);
+  background: var(--ink);
+  padding: 0.5rem 1rem;
+}
+/* "Storyboard" stamp, top-right */
+.hero::after {
+  content: "STORYBOARD — NOT FINAL";
+  position: absolute;
+  top: 1.25rem; right: 1.25rem;
+  z-index: 3;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  padding: 0.35rem 0.7rem;
+  transform: rotate(6deg);
+  opacity: 0.85;
+}
+/* hero text sits in a paper caption panel — keeps ink legible over the
+   photo half and reads like a note pinned to the board */
+.hero-content {
+  max-width: 420px;
+  width: calc(100% - 4rem);
+  margin: 0 0 -3.25rem 2rem;          /* low + breaks the bottom frame */
+  padding: 1.3rem 1.5rem 1.5rem;
+  background: rgba(247, 243, 233, 0.93);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 rgba(28, 26, 22, 0.3);
+  backdrop-filter: blur(1px);
+}
+.hero-eyebrow { color: var(--ink); background: none; padding: 0; text-shadow: none; font-size: 0.64rem; margin-bottom: 0.85rem; }
+.hero-title { color: var(--ink); text-shadow: none; font-size: clamp(1.8rem, 4.5vw, 3rem); line-height: 1; margin-bottom: 1rem; }
+.hero-title span { color: var(--gold); }
+.hero-sub { color: var(--ink); opacity: 0.9; background: none; padding: 0; font-size: 0.8rem; line-height: 1.6; max-width: none; margin-bottom: 1.5rem; }
+.scroll-hint { color: var(--ink); }
+
+/* On mobile, don't overlay the panel on the image — stack them so both
+   the chase image and the text get room to breathe. */
+@media (max-width: 700px) {
+  .hero {
+    min-height: auto;
+    justify-content: flex-start;
+    padding: 0 0 1.25rem;
+  }
+  .hero-bg-fallback { display: none; }
+  .hero-bg {
+    position: relative;
+    height: 44vh;
+    min-height: 260px;
+  }
+  .hero-content {
+    position: relative;
+    width: auto;
+    max-width: none;
+    margin: -2.25rem 1rem 0;       /* tuck up under the image edge */
+    background: var(--dark-card);   /* solid — crisp text, no muddy overlay */
+    backdrop-filter: none;
+  }
+  .scroll-hint { display: none; }
+  /* shorten the slate so it doesn't collide with the rotated stamp */
+  .hero::before { content: "SCENE 01 · SHOT A"; font-size: 0.6rem; padding: 0.4rem 0.7rem; }
+  .hero::after { font-size: 0.58rem; top: 0.85rem; right: 0.85rem; }
+}
+
+/* ── Buttons: hand-boxed ── */
+.btn-primary, .btn-secondary {
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.12s, box-shadow 0.12s, background 0.2s, color 0.2s;
+}
+.btn-primary { background: var(--gold); color: #fff; border-color: var(--ink); }
+.btn-primary:hover { background: var(--gold-light); transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--ink); }
+.btn-secondary { background: var(--dark-card); color: var(--ink); }
+.btn-secondary:hover { background: var(--ink); color: var(--dark-card); transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--ink); }
+
+/* ── Dividers: pencil dashes ── */
+.gold-line { background: none; border-top: 2px dashed var(--line); height: 0; opacity: 1; }
+
+/* ── STORYBOARD FILM STRIP — 5 frames slashing across the page ── */
+.film-strip {
+  position: relative;
+  z-index: 4;
+  width: 118%;
+  margin: 3rem -9% 3.5rem;
+  transform: rotate(-10deg);
+  background: #14110E;
+  box-shadow: 0 26px 55px -26px rgba(0, 0, 0, 0.6);
+}
+/* sprocket-hole rows top & bottom */
+.film-perfs {
+  height: 22px;
+  background-image: repeating-linear-gradient(90deg,
+    transparent 0 13px,
+    #d8d0bd 13px 27px,
+    transparent 27px 40px);
+}
+.film-frames {
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+}
+.film-frame {
+  flex: 1 1 0;
+  height: clamp(120px, 15vw, 185px);
+  background: #cfc7b4 center / cover no-repeat;
+  outline: 1px solid rgba(0, 0, 0, 0.45);
+}
+@media (max-width: 700px) {
+  .film-strip { width: 134%; margin: 2rem -17% 2.5rem; transform: rotate(-8deg); }
+  .film-frame { height: clamp(72px, 22vw, 120px); }
+  .film-perfs { height: 16px; }
+}
+
+/* ── Labels ── */
+.section-label, .event-card .eyebrow, .testimonial-author, .footer-social-label {
+  color: var(--gold); letter-spacing: 0.14em; font-size: 0.72rem;
+}
+
+/* ── Video: an "animatic" frame ── */
+.video-wrap { position: relative; }
+.video-frame {
+  background: var(--dark-card);
+  border: 3px solid var(--ink);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 rgba(28,26,22,0.25);
+}
+.video-wrap::before {
+  content: "FIG. 1 — ANIMATIC / SIZZLE";
+  position: absolute;
+  top: 3.4rem; left: 2.4rem;
+  z-index: 2;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.68rem;
+  background: var(--ink);
+  color: var(--dark-card);
+  padding: 0.3rem 0.6rem;
+}
+
+/* ── EVENT CARDS as storyboard frames ── */
+.event-card {
+  position: relative;
+  background: var(--dark-card);
+  border: 3px solid var(--ink);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 rgba(28,26,22,0.22);
+}
+.event-card:hover { border-color: var(--gold); background: #fff; transform: translate(-2px,-2px); box-shadow: 9px 9px 0 rgba(214,69,58,0.3); }
+
+/* photos start as desaturated boards, bloom to colour on hover */
+.event-card__image {
+  border-bottom: 3px solid var(--ink);
+  filter: grayscale(1) contrast(1.1);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+.event-card:hover .event-card__image { filter: grayscale(0) contrast(1); }
+.event-cards--rows .event-card__image { border-right: 3px solid var(--ink); border-bottom: none; }
+.event-cards--rows .event-card:nth-child(even) .event-card__image { border-left: 3px solid var(--ink); border-right: none; }
+
+/* scene/shot slug on each frame */
+.event-card__image::after {
+  position: absolute;
+  top: 0; left: 0;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  color: var(--dark-card);
+  background: var(--ink);
+  padding: 0.35rem 0.7rem;
+}
+.event-card--doors-off .event-card__image::after { content: "SCENE 02 · SHOT A"; }
+.event-card--big-bang .event-card__image::after { content: "SCENE 03 · SHOT B"; }
+.event-card--bespoke .event-card__image::after { content: "SCENE 04 · SHOT C"; }
+
+.event-card h3 { color: var(--ink); font-size: clamp(1.4rem, 3vw, 2.1rem); line-height: 1.08; }
+.event-card p { color: var(--pencil); opacity: 1; }
+.event-card .tags { color: var(--muted); border-bottom: 1px dashed var(--line-soft); }
+.event-card .card-cta { color: var(--gold); }
+
+/* ── Testimonials as margin notes ── */
+.testimonial {
+  background: var(--dark-card);
+  border: 2px solid var(--ink);
+  border-left: 6px solid var(--gold);
+  box-shadow: 4px 4px 0 rgba(28,26,22,0.18);
+}
+.testimonial-mark { font-family: 'Permanent Marker', cursive; color: var(--gold); opacity: 0.5; }
+.testimonial p { color: var(--ink); opacity: 0.9; font-style: normal; }
+
+/* ── Callout: a director's note, taped on ── */
+.callout-wrap {
+  background: var(--dark-mid);
+  border-top: 2px dashed var(--line);
+  border-bottom: 2px dashed var(--line);
+}
+.callout-quote { color: var(--ink); font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.15; }
+.callout-quote em { color: var(--gold); font-style: normal; }
+.callout-body { color: var(--muted); }
+
+/* ── Form: a shooting-request slip ── */
+label { color: var(--pencil); letter-spacing: 0.04em; }
+input, textarea, select {
+  background: var(--dark-card);
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  color: var(--ink);
+  font-size: 0.85rem;
+}
+input:focus, textarea:focus, select:focus { border-color: var(--gold); }
+select option { background: var(--dark-card); }
+.form-success { border: 3px solid var(--ink); border-radius: 0; background: var(--dark-card); box-shadow: 6px 6px 0 rgba(28,26,22,0.2); }
+.form-success .checkmark { border-color: var(--gold); color: var(--gold); }
+
+/* ── Footer: end slate ── */
+footer { border-top: 2px solid var(--ink); }
+.footer-links a { color: var(--muted); }
+.footer-links a:hover { color: var(--gold); }
+.footer-copy { border-top: 1px dashed var(--line-soft); color: var(--muted); }
+.footer-social a:hover { color: var(--gold); }
