@@ -12,6 +12,7 @@
     gtag('config', 'G-68KMKFQY9Y');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#080808" />
   <title>Totally Bespoke — Film-grade SFX Experiences</title>
   <meta name="description" content="Real cinematic special effects, in your hands. Blow The Bloody Doors Off and the Big Bang & Theory taster — film-grade pyrotechnic experiences in Clifford, Herefordshire." />
@@ -31,8 +32,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@500&family=Permanent+Marker&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/theme-storyboard.css" />
 
   <script type="application/ld+json">
   {
@@ -81,19 +83,18 @@
   <section class="hero hero--home">
     <div class="hero-bg-fallback"></div>
     <div class="hero-bg"></div>
+    <h1 class="hero-title">
+      Special<br>
+      Effects<br>
+      <span>Experience</span>
+    </h1>
     <div class="hero-content">
-      <p class="hero-eyebrow">A Totally Bespoke Experience</p>
-      <h1 class="hero-title">
-        Special<br>
-        Effects<br>
-        <span>Experience</span>
-      </h1>
       <p class="hero-sub">
         Step on set. Press the detonator. Watch a real cinematic explosion unfold — exactly as you've seen it on the big screen. But this time, the film-grade special effects are in your hands.
       </p>
       <div class="hero-ctas">
         <a href="#experiences" class="btn-primary">Pick Experience</a>
-        <a href="experiences.html" class="btn-secondary">All Experiences</a>
+        <a href="contact.html" class="btn-secondary">Contact Us</a>
       </div>
     </div>
     <div class="scroll-hint" aria-hidden="true">
@@ -103,9 +104,20 @@
     </div>
   </section>
 
-  <main>
+  <!-- ── STORYBOARD FILM STRIP ── -->
+  <div class="film-strip" aria-hidden="true">
+    <div class="film-perfs"></div>
+    <div class="film-frames">
+      <div class="film-frame" style="background-image:url('images/Artboard1.jpg')"></div>
+      <div class="film-frame" style="background-image:url('images/Artboard2.jpg')"></div>
+      <div class="film-frame" style="background-image:url('images/Artboard3.jpg')"></div>
+      <div class="film-frame" style="background-image:url('images/Artboard4.jpg')"></div>
+      <div class="film-frame" style="background-image:url('images/Artboard5.jpg')"></div>
+    </div>
+    <div class="film-perfs"></div>
+  </div>
 
-  <div class="gold-line" aria-hidden="true"></div>
+  <main>
 
   <!-- ── SIZZLE REEL ── -->
   <div class="video-wrap">
@@ -160,6 +172,8 @@
     </div>
   </section>
 
+  <div class="gold-line" aria-hidden="true"></div>
+
   <!-- ── TESTIMONIALS ── -->
   <section class="section">
     <p class="section-label">What They Said</p>
@@ -199,6 +213,8 @@
     </p>
   </section>
 
+  <div class="gold-line" aria-hidden="true"></div>
+
   <!-- ── ENQUIRY FORM ── -->
   <section class="section" id="enquire">
     <p class="section-label">Make An Enquiry</p>
@@ -209,7 +225,7 @@
       id="enquiry-form"
       action="https://formspree.io/f/xkopgnyd"
       method="POST"
-      style="margin-top: 2.5rem; max-width: 680px;"
+      style="margin: 2.5rem auto 0; max-width: 680px;"
     >
       <div class="field-row">
         <label>
