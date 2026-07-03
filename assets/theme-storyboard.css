@@ -73,6 +73,23 @@ input, textarea, select {
 .nav-links a[aria-current="page"] { color: var(--gold); border-bottom-color: var(--gold); }
 .nav-toggle { border: 2px solid var(--ink); color: var(--ink); border-radius: 0; }
 
+/* Mobile menu: a paper dropdown pinned under the nav, not the old dark panel */
+@media (max-width: 820px) {
+  .nav-links {
+    background: var(--dark-card);
+    backdrop-filter: none;
+    border: 2px solid var(--ink);
+    border-top: 1px solid var(--line-soft);
+    box-shadow: 0 8px 0 rgba(28, 26, 22, 0.18);
+    padding: 0.25rem 1.5rem 1rem;
+  }
+  .nav-links li { border-bottom: 1px solid var(--line-soft); padding: 0.95rem 0; }
+  .nav-links li:last-child { border-bottom: none; }
+  .nav-links a { font-size: 0.85rem; letter-spacing: 0.14em; }
+  .nav-links a[aria-current="page"] { color: var(--gold); }
+  .nav-toggle[aria-expanded="true"] { background: var(--ink); color: var(--dark-card); }
+}
+
 /* ── HERO as the opening frame ── */
 .hero {
   margin: 1.5rem;
@@ -382,6 +399,8 @@ input, textarea, select {
   font-size: 0.85rem;
 }
 input:focus, textarea:focus, select:focus { border-color: var(--gold); }
+/* Deeper select controls so they read as tap-friendly slips, not thin bars */
+select { padding-top: 1.05rem; padding-bottom: 1.05rem; }
 select option { background: var(--dark-card); }
 .form-success { border: 3px solid var(--ink); border-radius: 0; background: var(--dark-card); box-shadow: 6px 6px 0 rgba(28,26,22,0.2); }
 .form-success .checkmark { border-color: var(--gold); color: var(--gold); }
