@@ -78,27 +78,32 @@ input, textarea, select {
   margin: 1.5rem;
   border: 3px solid var(--ink);
   box-shadow: 6px 6px 0 rgba(28,26,22,0.25);
-  min-height: calc(100svh - var(--nav-h) - 3rem);
+  min-height: calc(80svh - var(--nav-h));
   overflow: visible;        /* let the caption panel break out of the frame */
   padding: 0 0 2rem;
 }
 /* The chase image is already half-photo / half-storyboard art —
    show it as-is (no greyscale) since it embodies the concept. */
-.hero--home .hero-bg, .hero--bespoke .hero-bg {
-  background:
-    linear-gradient(180deg, rgba(239,233,220,0) 0%, rgba(239,233,220,0.1) 70%, var(--dark) 100%),
-    url('../images/bond_hero.jpg') center center / cover no-repeat;
+.hero--home .hero-bg {
+  background: url('../images/bond_hero.jpg') center center / cover no-repeat;
+  filter: none;
+}
+.hero--bespoke .hero-bg {
+  background: url('../images/bespoke.jpg') center center / cover no-repeat;
   filter: none;
 }
 .hero--big-bang .hero-bg {
-  background:
-    linear-gradient(180deg, rgba(239,233,220,0.05) 0%, rgba(239,233,220,0.35) 55%, var(--dark) 100%),
-    url('../images/big-bang.jpg') center center / cover no-repeat;
-  filter: grayscale(1) contrast(1.15) brightness(1.05);
+  background: url('../images/big-bang.jpg') center center / cover no-repeat;
+  filter: none;
+}
+.hero--doors-off .hero-bg {
+  background: url('../images/hero.jpg') center center / cover no-repeat;
+  filter: none;
 }
 .hero-bg-fallback { background: repeating-linear-gradient(45deg, #ddd6c6 0 14px, #e7e0d0 14px 28px); }
 
-/* Scene slate, top-left of the frame */
+/* Scene slate, top-left of the frame — varies per page to match the
+   scene/shot slugs used on the home-page event cards */
 .hero::before {
   content: "SCENE 01 · SHOT A — EXT. SET / DAY";
   position: absolute;
@@ -111,21 +116,9 @@ input, textarea, select {
   background: var(--ink);
   padding: 0.5rem 1rem;
 }
-/* "Storyboard" stamp, top-right */
-.hero::after {
-  content: "STORYBOARD — NOT FINAL";
-  position: absolute;
-  top: 1.25rem; right: 1.25rem;
-  z-index: 3;
-  font-family: 'Courier Prime', 'Courier New', monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  color: var(--gold);
-  border: 2px solid var(--gold);
-  padding: 0.35rem 0.7rem;
-  transform: rotate(6deg);
-  opacity: 0.85;
-}
+.hero--doors-off::before { content: "SCENE 02 · SHOT A — EXT. SET / DAY"; }
+.hero--big-bang::before  { content: "SCENE 03 · SHOT B — EXT. SET / DAY"; }
+.hero--bespoke::before   { content: "SCENE 04 · SHOT C — INT. WORKSHOP / DAY"; }
 /* hero text sits in a paper caption panel — keeps ink legible over the
    photo half and reads like a note pinned to the board */
 .hero-content {
@@ -167,9 +160,64 @@ input, textarea, select {
     backdrop-filter: none;
   }
   .scroll-hint { display: none; }
-  /* shorten the slate so it doesn't collide with the rotated stamp */
+  /* shorten the slate on small screens */
   .hero::before { content: "SCENE 01 · SHOT A"; font-size: 0.6rem; padding: 0.4rem 0.7rem; }
-  .hero::after { font-size: 0.58rem; top: 0.85rem; right: 0.85rem; }
+  .hero--doors-off::before { content: "SCENE 02 · SHOT A"; }
+  .hero--big-bang::before  { content: "SCENE 03 · SHOT B"; }
+  .hero--bespoke::before   { content: "SCENE 04 · SHOT C"; }
+}
+
+/* ── Heroes: oversized title over the image, full-width caption bar ──
+   Title breaks out of the caption panel and sits big over the photo;
+   the body copy + buttons live in a full-width paper caption below it.
+   Applies to every hero (home + experience pages). */
+.hero .hero-title {
+  position: relative;
+  z-index: 3;
+  align-self: flex-start;
+  max-width: 14ch;
+  margin: 0 1.5rem 1.1rem;          /* over the image, above the caption */
+  font-size: clamp(2.7rem, 8.25vw, 5.6rem);
+  line-height: 0.9;
+  color: var(--dark-card);          /* cream, to read over the photo */
+  text-shadow:
+    0 2px 4px rgba(20, 17, 14, 0.55),
+    0 6px 32px rgba(20, 17, 14, 0.5);
+}
+.hero .hero-title span { display: block; color: var(--gold-light); }
+
+.hero .hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem 2.5rem;
+  width: auto;
+  max-width: none;
+  position: relative;
+  z-index: 3;
+  margin: 0 1.5rem -3.25rem;        /* full width, breaks the bottom frame */
+}
+.hero .hero-sub { flex: 1 1 320px; max-width: none; margin: 0; }
+.hero .hero-ctas { flex: 0 0 auto; flex-direction: row; flex-wrap: nowrap; }
+
+/* Home only: shorter frame, and the caption overlaps the film strip below it */
+.hero.hero--home { min-height: calc(74svh - var(--nav-h)); }
+.hero--home .hero-content { z-index: 6; margin-bottom: -5.5rem; }
+
+@media (max-width: 700px) {
+  .hero .hero-title {
+    font-size: clamp(2.1rem, 11.25vw, 3.4rem);
+    margin: 0 1rem 0.75rem;
+    text-align: left;
+  }
+  .hero .hero-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+    margin: -2.25rem 1rem 0;
+  }
+  .hero .hero-sub { flex: none; }
 }
 
 /* ── Buttons: hand-boxed ── */
@@ -325,8 +373,57 @@ select option { background: var(--dark-card); }
 .form-success .checkmark { border-color: var(--gold); color: var(--gold); }
 
 /* ── Footer: end slate ── */
-footer { border-top: 2px solid var(--ink); }
+/* No footer border — the callout-wrap above already provides a full-width
+   dashed divider; the footer's 900px-centred border read as a floating bar. */
+footer { border-top: none; }
+
+/* Centre the footer brand + links with equal space between (was edge-to-edge) */
+.footer-main { justify-content: space-evenly; }
 .footer-links a { color: var(--muted); }
 .footer-links a:hover { color: var(--gold); }
 .footer-copy { border-top: 1px dashed var(--line-soft); color: var(--muted); }
 .footer-social a:hover { color: var(--gold); }
+
+/* ── Contrast fixes ──
+   The base theme colours these elements white for a dark background.
+   On the paper theme they must be ink, or they vanish. */
+.faq-item summary,
+.feat-text strong,
+.step h3,
+.details-strip dd strong { color: var(--ink); }
+
+/* FAQ rows: swap the invisible white hairlines for pencil dashes */
+.faq-item { border-top: 1px dashed var(--line-soft); }
+.faq-item:last-child { border-bottom: 1px dashed var(--line-soft); }
+.faq-item summary::after { font-family: 'Permanent Marker', cursive; color: var(--gold); }
+
+/* Step numbers: red, typewriter (base renders them a near-invisible gold) */
+.step-num { font-family: 'Courier Prime', 'Courier New', monospace; font-weight: 700; color: var(--gold); }
+
+/* Find Us label: base's `.find-us p` rule bleeds onto the section label
+   (ink, 1rem) — restore the standard red + size so it matches other labels. */
+.find-us .section-label { color: var(--gold); font-size: 0.72rem; }
+
+/* Eyebrows / kicker labels: Inter Medium (overrides the typewriter default) */
+.section-label,
+.block-eyebrow,
+.hero-eyebrow,
+.eyebrow,
+.event-card .eyebrow,
+.tags,
+.details-strip dt,
+.booking-panel .placeholder-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+/* Details strip & booking panel: give them the same hand-boxed frame as the
+   other storyboard cards (base used thin gold hairlines for the dark theme). */
+.details-strip,
+.booking-panel {
+  background: var(--dark-card);
+  border: 3px solid var(--ink);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 rgba(28, 26, 22, 0.22);
+}
+.booking-panel p { color: var(--pencil); opacity: 1; }
