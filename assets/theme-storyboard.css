@@ -206,17 +206,31 @@ input, textarea, select {
 .hero--home .hero-content { z-index: 6; margin-bottom: -5.5rem; }
 
 @media (max-width: 700px) {
+  /* Stacked layout: image fills the frame, then title, then caption —
+     each on its own row with no overlap. Title switches to dark ink so
+     it stays legible on the paper zone below the photo. */
+  .hero--home .hero-bg,
+  .hero .hero-bg {
+    height: 50vh;
+    min-height: 300px;
+    background-position: center 42%;
+  }
   .hero .hero-title {
     font-size: clamp(2.1rem, 11.25vw, 3.4rem);
-    margin: 0 1rem 0.75rem;
+    margin: 1rem 1rem 0;
     text-align: left;
+    color: var(--ink);
+    text-shadow: none;
   }
+  .hero .hero-title span { color: var(--gold); }
   .hero .hero-content {
     flex-direction: column;
     align-items: stretch;
     gap: 1.25rem;
-    margin: -2.25rem 1rem 0;
+    margin: 1.1rem 1rem 0;
   }
+  /* neutralise the desktop film-strip tuck so nothing yanks up over the caption */
+  .hero--home .hero-content { margin-bottom: 0; }
   .hero .hero-sub { flex: none; }
 }
 
