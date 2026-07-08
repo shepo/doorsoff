@@ -11,7 +11,7 @@
   --nav-h: 64px;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; background: var(--dark); }
 
 body {
   background: var(--dark);
@@ -20,6 +20,8 @@ body {
   font-weight: 300;
   line-height: 1.6;
   overflow-x: hidden;
+  max-width: 1350px;
+  margin: 0 auto;
 }
 
 a { color: inherit; }
