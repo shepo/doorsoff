@@ -249,6 +249,18 @@ input, textarea, select {
   /* neutralise the desktop film-strip tuck so nothing yanks up over the caption */
   .hero--home .hero-content { margin-bottom: 0; }
   .hero .hero-sub { flex: none; }
+  /* undo the desktop nowrap row so the CTAs stack full-width instead of
+     running off the side of the caption */
+  .hero .hero-ctas {
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .hero .hero-ctas .btn-primary,
+  .hero .hero-ctas .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* ── Buttons: hand-boxed ── */
